@@ -9,7 +9,7 @@ class Play extends Phaser.Scene {
 
         // add new Hero to scene (scene, x, y, key, frame, direction)
         //this.hero = new P1(this, 200, 150, 'player1', 0)
-        this.hero2 = new P1(this, 0, 0, 'player2', 0)
+        this.hero2 = new P1(this, 300*0.75, 300*0.75, 'player2', 0)
 
         // setup keyboard input
         this.keys = this.input.keyboard.createCursorKeys()
