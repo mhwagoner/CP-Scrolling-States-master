@@ -10,62 +10,69 @@ class Load extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 32,
         })
-        this.load.spritesheet('player1', 'Temp_Spritesheet.png', {
-            frameWidth: 300,
-            frameHeight: 300,
-        })
         this.load.image('map', 'map-scroll.jpg')
     }
 
     create() {
-        // player1 animations
+        // hero animations (walking)
         this.anims.create({
-            key: 'duck',
-            frameRate: 0,
+            key: 'walk-down',
+            frameRate: 8,
             repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 4, end: 4 }),
+            frames: this.anims.generateFrameNumbers('hero', { start: 0, end: 3 }),
         })
         this.anims.create({
-            key: 'hand-right',
-            frameRate: 0,
+            key: 'walk-right',
+            frameRate: 8,
             repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 2, end: 2 }),
+            frames: this.anims.generateFrameNumbers('hero', { start: 4, end: 7 }),
         })
         this.anims.create({
-            key: 'hand-up',
-            frameRate: 0,
+            key: 'walk-up',
+            frameRate: 8,
             repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 3, end: 3 }),
+            frames: this.anims.generateFrameNumbers('hero', { start: 8, end: 11 }),
         })
         this.anims.create({
-            key: 'hand-left',
-            frameRate: 0,
+            key: 'walk-left',
+            frameRate: 8,
             repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 1, end: 1 }),
+            frames: this.anims.generateFrameNumbers('hero', { start: 12, end: 15 }),
+        })
+
+        // hero animations (swinging)
+        this.anims.create({
+            key: 'swing-down',
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('hero', { start: 16, end: 19 }),
         })
         this.anims.create({
-            key: 'hand-left-right',
-            frameRate: 0,
-            repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 5, end: 5 }),
+            key: 'swing-up',
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('hero', { start: 20, end: 23 }),
         })
         this.anims.create({
-            key: 'hand-left-up',
-            frameRate: 0,
-            repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 6, end: 6 }),
+            key: 'swing-right',
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('hero', { start: 24, end: 27 }),
         })
         this.anims.create({
-            key: 'hand-right-up',
-            frameRate: 0,
-            repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 7, end: 7 }),
+            key: 'swing-left',
+            frameRate: 8,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('hero', { start: 28, end: 31 }),
         })
+
         this.anims.create({
-            key: 'idle',
-            frameRate: 0,
-            repeat: -1,
-            frames: this.anims.generateFrameNumbers('player1', { start: 0, end: 0 }),
+            key: 'circular-attack',
+            frameRate: 24,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('hero', {
+                frames: [16, 16, 16, 17, 18, 24, 25, 26, 21, 22, 30, 29, 28, 18, 19, 19, 19]
+            })
         })
 
         // proceed once loading completes
